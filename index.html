@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Elyes MEJRI Test</title>
+  <link rel="icon" href="img/favicon.png">  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+     
+  <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+
+      
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script  src="js/index.js"></script>
+  
+</head>
+
+<body>
+<div class="container" ng-app="app" ng-controller="MainCtrl">
+    <!-- Modal -->
+
+  <section >
+  <center><h2>Movies Mangament</h2></center>
+
+  <input type="text" ng-model="search"> <button style="float:right" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add new Movie</button>
+   <p><span class="label">Ordered By: {{orderByField}}, Reverse Sort: {{reverseSort}}</span> </p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th width="20%">
+          <a href="#" ng-click="orderByField='title'">
+          Title </a><a href="#" ng-click="reverseSort = !reverseSort"><span ng-show="orderByField == 'title'"><span style="float:right" ng-show="!reverseSort"><img width="10" src="img/upA.png" /></span><span style="float:right" ng-show="reverseSort"><img  width="10" src="img/downA.png" /></span></span>
+          </a>
+        </th>
+        <th width="20%">
+          <a href="#" ng-click="orderByField='duration'">
+          Duration</a><a href="#" ng-click="reverseSort = !reverseSort"> <span ng-show="orderByField == 'duration'"><span style="float:right" ng-show="!reverseSort"><img width="10" src="img/upA.png" /></span><span style="float:right" ng-show="reverseSort"><img  width="10" src="img/downA.png" /></span></span>
+          </a>
+        </th>
+        <th width="20%">
+          <a href="#" ng-click="orderByField='actors'">
+          Actors</a><a href="#" ng-click="reverseSort = !reverseSort"> <span ng-show="orderByField == 'actors'"><span style="float:right" ng-show="!reverseSort"><img width="10" src="img/upA.png" /></span><span style="float:right" ng-show="reverseSort"><img  width="10" src="img/downA.png" /></span></span>
+          </a>
+        </th>
+        <th width="20%">
+          <a href="#" ng-click="orderByField='director'">
+          Director</a><a href="#" ng-click="reverseSort = !reverseSort"> <span ng-show="orderByField == 'director'"><span style="float:right" ng-show="!reverseSort"><img width="10" src="img/upA.png" /></span><span style="float:right" ng-show="reverseSort"><img  width="10" src="img/downA.png" /></span></span>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="mv in data|orderBy:orderByField:reverseSort| filter : search">
+        <td>{{mv.title}}</td>
+        <td>{{mv.duration}} Mins</td>
+        <td>{{mv.actors}}</td>
+        <td>{{mv.director}}</td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+</section>
+  <div class="modal fade" id="myModal" role="dialog" >
+  <form ng-submit="AddNew(movie)">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add new Movie</h4>
+        </div>
+        <div class="modal-body">
+            <div>
+			<center>
+    <table>
+	<tr>
+	<td>Title : </td><td><input  type="text" ng-model="movie.title" required /></td></tr>
+    <td>Duration : </td><td>      <input  type="number" ng-model="duration.hours" required style="width:30px" />:<input  type="number" ng-model="duration.minutes" required  style="width:30px"/> = {{duration.hours*60+ duration.minutes}} Mins</td></tr>
+    <td>Actors : </td><td>       <input  type="text" ng-model="movie.actors" required /></td></tr>
+    <td>Director : </td><td>        <input  type="text" ng-model="movie.director" required /></td></tr>
+    
+    </table>
+	</center>
+  </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" >Save</button>
+        </div>
+      </div>
+      
+    </div>
+	</form>
+  </div>
+  </div>
+
+
+
+</body>
+</html>

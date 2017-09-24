@@ -1,0 +1,17 @@
+section {
+  width: 400px;
+  margin: 10% auto;
+  background:white;
+  padding:15px;
+  border-radius: 15px;
+  opacity: 0.9;
+}
+
+body {
+    background: url("../img/angular.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
