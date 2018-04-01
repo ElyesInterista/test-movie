@@ -1,5 +1,5 @@
 
-#Technologys:
+# Technologys:
 
 - Angular
 - Bootstrap
@@ -7,12 +7,11 @@
 - CSS
 - HTML
 
-#The Task is the following:
+# The Task is the following:
 - Create an object with movies (title, duration, actors, director.. )
 - Show the movies on a HTML view with a sorting option
 - Add the functionallity to add a movie to the object
 - Add the functionallity to filter for a movie
-- Find a nice design ☺
 
 ## screenshots 
 
